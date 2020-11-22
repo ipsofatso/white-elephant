@@ -14,6 +14,7 @@ const gameSlice = createSlice({
 		addGameData: ( state, { payload } ) => {
 			state.players = payload.players
 			state.gifts = payload.gifts
+			state.order = payload.order
 		},
 		addPlayer: ( state, { payload } ) => {
 			const seed = `${ payload.toLowerCase() }${ Math.random() * 100 }`

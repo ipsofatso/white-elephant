@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
+import GravatarPlayer from '../../ui-components/gravatar-player'
 import { removePlayer } from '../../../slices/game'
 
 import './index.scss'
@@ -16,6 +17,7 @@ function Player( props ) {
 
     return(
         <li className="player">
+            <GravatarPlayer player={ props.player } />
             { props.player.name }
 
             <a onClick={ handleRemove } >remove</a>

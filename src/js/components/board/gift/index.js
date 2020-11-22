@@ -2,6 +2,8 @@ import React from 'react'
 
 import { useDrag } from 'react-dnd'
 
+import './index.scss'
+
 function BoardGift( props ) {
 
     const [{ opacity }, drag] = useDrag({

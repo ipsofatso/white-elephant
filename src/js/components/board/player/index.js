@@ -1,6 +1,10 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 
+import GravatarPlayer from '../../ui-components/gravatar-player'
+
+import './index.scss'
+
 function BoardPlayer( props ) {
 
     const [{ isOver }, drop] = useDrop({
@@ -16,6 +20,7 @@ function BoardPlayer( props ) {
             className="board-player"
             ref={ drop }
         >
+            <GravatarPlayer player={ props.player } />
             <p>{ props.player.name }</p>
 
             { isOver &&

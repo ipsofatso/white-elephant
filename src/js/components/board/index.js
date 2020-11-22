@@ -7,6 +7,8 @@ import BoardPlayer from './player'
 
 import { ItemTypes } from './itemTypes'
 
+import './index.scss'
+
 function Board() {
     const { gifts, players } = useSelector( gameSelector )
 
