@@ -13,9 +13,13 @@ import { Provider } from 'react-redux'
 import { configureStore } from '@reduxjs/toolkit'
 import rootReducer from './slices'
 
+import Board from './components/board'
 import DataHandler from './components/data-handler'
 import Header from './components/header'
 import Players from './components/players'
+
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import './app.scss'
 
@@ -23,7 +27,7 @@ const store = configureStore({ reducer: rootReducer })
 
 // App. Setup shared state, and routing.
 export function App() {
-	const [ currentTab, setCurrentTab ] = useState( 1 )
+	const [ currentTab, setCurrentTab ] = useState( 0 )
 
     return (
 		<Provider store={ store }>
@@ -35,7 +39,9 @@ export function App() {
 
 			<section className="content">
 				{ currentTab === 0 &&
-					<p>board</p>
+					<DndProvider backend={HTML5Backend}>
+						<Board />
+					</DndProvider>
 				}
 
 				{ currentTab === 1 &&
