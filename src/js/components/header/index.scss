@@ -1,0 +1,40 @@
+@import '../colors.scss';
+@import '../constants.scss';
+
+.header.MuiAppBar-root {
+    background-color: $dark-gray;
+
+    .MuiTabs-root {
+        min-height: unset;
+
+        .MuiTabs-scroller {
+            .MuiTabs-flexContainer {
+                button.MuiButtonBase-root {
+                    min-height: unset;
+                    min-width: unset;
+                    padding: 0 1.5rem;
+
+                    .MuiTab-wrapper {
+                        color: $white;
+                        min-height: unset;
+                        height: $header-height;
+                        text-transform: capitalize;
+                        font-size: 1.25rem;
+                    }
+
+                    &.icon {
+                        padding: 0 0 0 0.25rem;
+
+                        .MuiTab-wrapper {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .MuiTabs-indicator {
+                background-color: $white;
+            }
+        }
+    }
+}
