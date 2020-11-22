@@ -53,8 +53,6 @@ function Board() {
     }
 
     const handleDrop = ( rcvr, gift ) => {
-        console.log('handle drop, rcvr: ', rcvr, ', gift: ', gift)
-
         const payload = {
             giftID: gift.name,
             rcvrID: rcvr

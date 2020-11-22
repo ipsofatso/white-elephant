@@ -15,6 +15,7 @@ import rootReducer from './slices'
 
 import Board from './components/board'
 import DataHandler from './components/data-handler'
+import Gifts from './components/gifts'
 import Header from './components/header'
 import Players from './components/players'
 
@@ -27,7 +28,7 @@ const store = configureStore({ reducer: rootReducer })
 
 // App. Setup shared state, and routing.
 export function App() {
-	const [ currentTab, setCurrentTab ] = useState( 0 )
+	const [ currentTab, setCurrentTab ] = useState( 2 )
 
     return (
 		<Provider store={ store }>
@@ -49,6 +50,10 @@ export function App() {
 				}
 
 				{ currentTab === 2 &&
+					<Gifts />
+				}
+
+				{ currentTab === 3 &&
 					<p>log</p>
 				}
 			</section>

@@ -15,6 +15,9 @@ function Header( props ) {
             label: "Players",
         },
         {
+            label: "Gifts"
+        },
+        {
             label: "Log",
         },
     ]
