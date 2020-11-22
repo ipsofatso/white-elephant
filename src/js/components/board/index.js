@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { gameSelector } from '../../slices/game'
+import { assignGift, gameSelector } from '../../slices/game'
 import BoardGift from './gift'
 import BoardPlayer from './player'
 
@@ -10,6 +10,7 @@ import { ItemTypes } from './itemTypes'
 import './index.scss'
 
 function Board() {
+    const dispatch = useDispatch()
     const { gifts, players } = useSelector( gameSelector )
 
     const generatePileGifts = () => {
@@ -38,9 +39,11 @@ function Board() {
             markup.push(
                 <BoardPlayer
                     accept={ ItemTypes.GIFT }
+                    handleIsDropped={ handleIsDropped }
                     key={ player.id }
                     lastDroppedItem={ null }
-                    onDrop={ handleDrop }
+                    name={ player.id }
+                    onDrop={ ( gift ) => { handleDrop( player.id, gift ) } }
                     player={ player }
                 />
             )
@@ -49,8 +52,15 @@ function Board() {
         return markup
     }
 
-    const handleDrop = ( i, x ) => {
-        console.log('handle drop, item: ', i, ', x: ', x)
+    const handleDrop = ( rcvr, gift ) => {
+        console.log('handle drop, rcvr: ', rcvr, ', gift: ', gift)
+
+        const payload = {
+            giftID: gift.name,
+            rcvrID: rcvr
+        }
+
+        dispatch( assignGift( payload ) )
     }
 
     const handleIsDropped = ( x ) => {

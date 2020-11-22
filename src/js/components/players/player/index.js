@@ -10,14 +10,13 @@ function Player( props ) {
     const dispatch = useDispatch()
 
     const handleRemove = () => {
-        console.log('handle remove')
-
         dispatch( removePlayer( props.player.id ) )
     }
 
     return(
         <li className="player">
             <GravatarPlayer player={ props.player } />
+           
             { props.player.name }
 
             <a onClick={ handleRemove } >remove</a>

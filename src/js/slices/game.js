@@ -43,6 +43,17 @@ const gameSlice = createSlice({
 				history: []
 			} )
 		},
+		assignGift: ( state, { payload } ) => {
+			const giftID = state.gifts.findIndex( ( e, i ) => {
+				return state.gifts[ i ].giverID === payload.giftID
+			} )
+			const thisGift = state.gifts[ giftID ]
+
+			thisGift.rcvrID && thisGift.history.push( thisGift.rcvrID )
+			thisGift.rcvrID = payload.rcvrID
+
+			state.gifts[ giftID ] = thisGift
+		},
 		removePlayer: ( state, { payload } ) => {
 			const updPlayers = _.reject( state.players, { id: payload } )
 			const updGifts = _.reject( state.gifts, { giverID: payload } )
@@ -61,6 +72,7 @@ const gameSlice = createSlice({
 export const {
 	addGameData,
 	addPlayer,
+	assignGift,
 	removePlayer,
 	updateOrder
 } = gameSlice.actions

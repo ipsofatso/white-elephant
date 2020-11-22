@@ -9,9 +9,9 @@ module.exports = {
 	},
 	devServer: {
 		contentBase: './dist',
-		open: true,
 		historyApiFallback: true,
 		hot: true,
+		injectHot: true,
 		open: true,
 		port: 3000,
 	},
