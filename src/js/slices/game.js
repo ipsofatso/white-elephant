@@ -62,8 +62,13 @@ const gameSlice = createSlice({
 			state.players = updPlayers
 			state.gifts = updGifts
 		},
+		removeRcvrFromGift: ( state, { payload } ) => {
+			const ind = state.gifts.findIndex( ( g ) => { return g.giverID === payload } )
+
+			state.gifts[ ind ].rcvrID = null
+		},
 		updateOrder: ( state, { payload } ) => {
-			state.order = payload	
+			state.order = payload
 		}
 	}
 })
@@ -74,6 +79,7 @@ export const {
 	addPlayer,
 	assignGift,
 	removePlayer,
+	removeRcvrFromGift,
 	updateOrder
 } = gameSlice.actions
 

@@ -1,0 +1,12 @@
+@import '../colors.scss';
+
+section.players-section {
+	background: rgba( $white, 0.25 );
+
+	.columns {
+		display: grid;
+		grid-template-columns: 1fr 15rem;
+		grid-template-rows: 1fr;
+		grid-column-gap: 0.5rem;
+	}
+}

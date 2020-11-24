@@ -4,12 +4,17 @@ import AddPlayer from './add-player'
 import PlayerList from './player-list'
 import PlayerOrder from './player-order'
 
+import './index.scss'
+
 function Players() {
     return (
         <section className="players-section">
             <AddPlayer />
-            <PlayerList />
-            <PlayerOrder />
+
+			<div className="columns">
+				<PlayerList />
+				<PlayerOrder />
+			</div>
         </section>
     )
 }

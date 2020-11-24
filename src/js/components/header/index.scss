@@ -2,7 +2,12 @@
 @import '../constants.scss';
 
 .header.MuiAppBar-root {
-    background-color: $dark-gray;
+	background-image: url('../../../images/wood.jpg');
+	background-size: cover;
+	background-blend-mode: overlay;
+	background-color: lighten( $dark-gray, 10 );
+	background-repeat: no-repeat;
+	box-shadow: inset 0 -1rem 2rem rgba( $black, 0.35 ), 0 0.25rem 1rem $black;
 
     .MuiTabs-root {
         min-height: unset;
@@ -15,11 +20,11 @@
                     padding: 0 1.5rem;
 
                     .MuiTab-wrapper {
-                        color: $white;
-                        min-height: unset;
+						color: $white;
+						min-height: unset;
                         height: $header-height;
                         text-transform: capitalize;
-                        font-size: 1.25rem;
+                        font-size: 1.35rem;
                     }
 
                     &.icon {
@@ -33,7 +38,7 @@
             }
 
             .MuiTabs-indicator {
-                background-color: $white;
+                background-color: rgba( $white, 0.5 );
             }
         }
     }

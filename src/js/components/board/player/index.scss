@@ -2,17 +2,33 @@
 
 div.board-player {
     float: left;
-    border: solid 1px $white;
-    padding: 1rem;
-    margin: 1rem;
+	background: $white;
+	border-radius: 0.5rem;
+	margin: 0 2rem 2rem 0;
+	overflow: hidden;
+	width: 10rem;
+	box-shadow: 0.125rem 0.125rem 0.25rem rgba( $black, 0.5 );
+	transition: all 0.125s ease-in-out;
 
-    img {}
+    img {
+		display: block;
+		width: 100%;
+	}
 
     p {
-        font-size: 1.5rem;
+		font-size: 1.65rem;
+		color: $black;
+		text-align: center;
+		text-transform: capitalize;
     }
 
+	.faux-gift,
     .board-gift {
-        margin: 0.5rem 0 0 0;
-    }
+        margin: 0.5rem auto 0.5rem auto;
+	}
+
+	&.is-over {
+		transform: scale( 1.0625 );
+		box-shadow: 0.25rem 0.25rem 0.5rem $black;
+	}
 }

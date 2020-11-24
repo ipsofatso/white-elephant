@@ -1,2 +1,4 @@
+dist
+prod
 node_modules
 webpack.prod.js

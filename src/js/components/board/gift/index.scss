@@ -1,6 +1,60 @@
+@import '../../colors.scss';
+
 div.board-gift {
-    border: solid 1px red;
+	background: red;
     border-radius: 0.5rem;
-    width: 5rem;
-    height: 5rem;
+    width: 8rem;
+	height: 8rem;
+	position: relative;
+
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		background-color: #ffb8b8;
+		z-index: 1;
+	}
+
+	&:before {
+		top: 0;
+		bottom: 0;
+		left: 50%;
+		width: 1rem;
+		transform: translate(-50%, 0);
+	}
+
+	&:after {
+		top: 50%;
+		right: 0;
+		left: 0;
+		height: 1rem;
+		transform: translate(0, -50%);
+	}
+
+	.tag {
+		position: absolute;
+		background-color: $white;
+		color: $black;
+		font-size: 1.5rem;
+		line-height: 1.25rem;
+		padding: 0.25rem 0.5rem;
+		box-sizing: border-box;
+		top: 0.25rem;
+		left: 0.25rem;
+		z-index: 3;
+		transform: rotate( -7deg );
+		border-radius: 0.25rem;
+		border: solid 1px $med-gray;
+		max-width: 75%;
+		white-space: normal;
+		word-break: break-word;
+		box-shadow: 0 0 0.125rem $black;
+
+		&:before {
+			content: 'from:';
+			font-size: 1rem;
+			line-height: 0.75rem;
+			display: block;
+		}
+	}
 }

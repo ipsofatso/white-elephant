@@ -28,7 +28,7 @@ const store = configureStore({ reducer: rootReducer })
 
 // App. Setup shared state, and routing.
 export function App() {
-	const [ currentTab, setCurrentTab ] = useState( 2 )
+	const [ currentTab, setCurrentTab ] = useState( 1 )
 
     return (
 		<Provider store={ store }>

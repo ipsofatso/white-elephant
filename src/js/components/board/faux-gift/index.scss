@@ -1,0 +1,13 @@
+@import '../../colors.scss';
+@import '../gift/index.scss';
+
+.faux-gift {
+	@extend div.board-gift;
+	background: $med-gray;
+	box-shadow: inset 0.25rem 0.25rem 0.5rem darken( $med-gray, 10 );
+
+	&:after,
+	&:before {
+		content: unset;
+	}
+}

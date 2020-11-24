@@ -1,10 +1,12 @@
 import React from 'react'
-
 import { useDrag } from 'react-dnd'
+
+import getPlayerById from '../../ui-components/get-player-by-id'
 
 import './index.scss'
 
 function BoardGift( props ) {
+	const player = getPlayerById( props.gift.giverID )
 
     const [{ opacity }, drag] = useDrag({
         item: {
@@ -19,13 +21,12 @@ function BoardGift( props ) {
     return (
         <div
             className="board-gift"
-            ref={ drag }
+			ref={ drag }
+			style={{ opacity }}
         >
-            gift giver { props.gift.giverID }
-
-            <p>
-                { opacity }
-            </p>
+			<div className="tag">
+				{ player.name }
+			</div>
         </div>
     )
 }

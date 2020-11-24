@@ -8,12 +8,12 @@ module.exports = {
 		app: './src/js/app.js'
 	},
 	devServer: {
-		contentBase: './dist',
+		contentBase: path.join( __dirname, 'dist' ),
 		historyApiFallback: true,
-		hot: true,
-		injectHot: true,
+		liveReload: true,
 		open: true,
 		port: 3000,
+		writeToDisk: true
 	},
 	module: {
 		rules: [
@@ -44,7 +44,7 @@ module.exports = {
 					'css-loader',
 					'sass-loader',
 				]
-			}, 
+			},
 			{
 				test: /\.(png|jpe?g|gif|ico)$/i,
 				loader: 'file-loader',
@@ -78,5 +78,6 @@ module.exports = {
 	output: {
 		filename: 'js/[name].js',
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/'
 	}
 };
