@@ -1,4 +1,85 @@
+@import '../../colors.scss';
+
+$card-width: 15vw;
+
 li.gift-detail {
-    padding: 1rem;
-    border-bottom: solid 1px white;
+	padding: 0;
+	margin: 0 1rem 1rem 0;
+	border-radius: 0.5rem;
+	background: $white;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 1fr;
+	grid-column-gap: 0px;
+	display: inline-block;
+	width: $card-width;
+	color: $black;
+	overflow: hidden;
+	vertical-align: top;
+
+	.gift-image,
+	.no-image {
+		display: block;
+		width: $card-width;
+		height: $card-width/1.5;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.no-image {
+		background-color: $med-gray;
+		box-shadow: inset 0 0 2rem $dark-gray;
+		text-align: center;
+		line-height: $card-width/1.5;
+		color: $black;
+		text-transform: capitalize;
+	}
+
+	p {
+		color: $black;
+	}
+
+	a {
+		color: $black;
+	}
+
+	dl {
+		margin: 1rem;
+
+		dt,
+		dd {
+		}
+
+		dt {
+			color: lighten( $dark-gray, 50 );
+			font-size: 1.125rem;
+		}
+
+		dd {
+			color: $black;
+			font-size: 1.5rem;
+			margin: 0 0 1rem 0;
+
+			a {
+				font-size: 0.9rem;
+				margin: 0 0 0 0.5rem;
+				color: red;
+				cursor: pointer;
+				vertical-align: top;
+			}
+
+			span {
+				&:after {
+					content: " > ";
+				}
+
+				&:last-child {
+					&:after {
+						content: '';
+					}
+				}
+			}
+		}
+	}
 }

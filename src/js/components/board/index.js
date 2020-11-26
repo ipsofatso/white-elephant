@@ -68,7 +68,9 @@ function Board() {
     return (
         <section className="board-module">
             <section className="gift-pile">
-                gift pile
+                <h1>
+					gift pile
+                </h1>
 
                 { generatePileGifts() }
             </section>

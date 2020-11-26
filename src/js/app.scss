@@ -1,6 +1,6 @@
 @import './components/constants.scss';
 @import './components/colors.scss';
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 html, body,
 section, div, p,
@@ -10,8 +10,7 @@ dl, dt, dd {
     padding: 0;
     margin: 0;
 	color: $white;
-	font-family: 'Concert One', cursive;
-
+	font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -25,7 +24,6 @@ html, body {
 	height: 100vh;
 	background-image: url( "../images/green-felt.jpg" );
 	background-size: cover;
-	background-repeat: no-repeat;
 	background-position: center;
 	background-blend-mode: overlay;
 	background-color: $green;

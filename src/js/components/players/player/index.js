@@ -11,15 +11,19 @@ function Player( props ) {
 
     const handleRemove = () => {
         dispatch( removePlayer( props.player.id ) )
-    }
+	}
 
     return(
         <li className="player">
             <GravatarPlayer player={ props.player } />
-           
-            { props.player.name }
 
-            <a onClick={ handleRemove } >remove</a>
+            <h3>
+				{ props.player.name }
+            </h3>
+
+			<div>
+				<a onClick={ handleRemove } >remove</a>
+			</div>
         </li>
     )
 }

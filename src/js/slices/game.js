@@ -5,6 +5,7 @@ export const initialState = {
 	gifts: [],
 	order: [],
 	players: [],
+	showGiver: false
 }
 
 const gameSlice = createSlice({
@@ -40,7 +41,8 @@ const gameSlice = createSlice({
 			state.gifts.push( {
 				giverID: id,
 				rcvrID: null,
-				history: []
+				history: [],
+				image: null
 			} )
 		},
 		assignGift: ( state, { payload } ) => {
@@ -59,13 +61,28 @@ const gameSlice = createSlice({
 			const updGifts = _.reject( state.gifts, { giverID: payload } )
 			// need to remove any gifts they are rcvr
 
-			state.players = updPlayers
+			state.order = []
 			state.gifts = updGifts
+			state.players = updPlayers
 		},
 		removeRcvrFromGift: ( state, { payload } ) => {
 			const ind = state.gifts.findIndex( ( g ) => { return g.giverID === payload } )
 
 			state.gifts[ ind ].rcvrID = null
+		},
+		setGiftUrl: ( state, { payload } ) => {
+			const ind = _.findIndex(
+				state.gifts,
+				{ giverID: payload.giverID }
+			)
+
+			console.log('ind: ', ind)
+			console.log('payload: ', payload)
+
+			state.gifts[ ind ].image = payload.image
+		},
+		toggleShowGiver: ( state ) => {
+			state.showGiver = !state.showGiver
 		},
 		updateOrder: ( state, { payload } ) => {
 			state.order = payload
@@ -80,6 +97,8 @@ export const {
 	assignGift,
 	removePlayer,
 	removeRcvrFromGift,
+	setGiftUrl,
+	toggleShowGiver,
 	updateOrder
 } = gameSlice.actions
 
