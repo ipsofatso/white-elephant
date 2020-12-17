@@ -1,0 +1,63 @@
+@import '../../colors.scss';
+
+.player-order-control-module {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 0.25rem 1rem 0.5rem;
+	font-size: 1.25rem;
+	background: rgba( $black, 0.75 );
+	border-radius: 1rem 0 0 0;
+
+	a {
+		color: rgba( $white, 0.35 );
+		cursor: pointer;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+	ul {
+		list-style: none;
+		display: inline-block;
+		margin: 0 1rem;
+
+		li {
+			display: inline-block;
+			margin: 0 2rem 0 0;
+
+			&:first-child,
+			&:nth-child( 2 ),
+			&:last-child {
+				&:before {
+					color: rgba( $white, 0.35 );
+					display: block;
+				}
+			}
+
+			&:first-child {
+				font-size: 1.25rem;
+
+				&:before {
+					content: "previous:";
+				}
+			}
+
+			&:nth-child( 2 ) {
+				font-size: 1.5rem;
+				&:before {
+					content: "current:";
+				}
+			}
+
+			&:last-child {
+				font-size: 1.25rem;
+
+				&:before {
+					content: "next:";
+				}
+			}
+		}
+	}
+}

@@ -1,10 +1,12 @@
 @import '../../colors.scss';
 
+$dimension: 14rem;
+
 div.board-gift {
 	background: red;
     border-radius: 0.5rem;
-    width: 8rem;
-	height: 8rem;
+    width: $dimension;
+	height: $dimension;
 	position: relative;
 
 	&:before,
@@ -69,7 +71,7 @@ div.board-gift {
 		}
 
 		.tag {
-			display: none;
+			//display: none;
 		}
 	}
 }

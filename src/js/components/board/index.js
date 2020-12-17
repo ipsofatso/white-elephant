@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { assignGift, gameSelector } from '../../slices/game'
 import BoardGift from './gift'
 import BoardPlayer from './player'
+import PlayerOrderControl from './player-order-control'
 
 import { ItemTypes } from './itemTypes'
 
@@ -78,6 +79,8 @@ function Board() {
             <section className="players">
                 { generatePlayers() }
             </section>
+
+			<PlayerOrderControl />
         </section>
     )
 }

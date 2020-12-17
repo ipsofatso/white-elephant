@@ -1,5 +1,27 @@
 @import '../../colors.scss';
 
 .player-order-module {
-    padding: 2rem 1rem;
+	padding: 2rem 1rem;
+
+	.MuiButtonBase-root {
+        color: $white;
+        background: $green;
+        vertical-align: bottom;
+        margin: 1rem 0 0 0;
+
+        &:hover {
+            background: darken( $green, 5% );
+		}
+	}
+
+	ol {
+		padding: 0;
+		margin: 1rem 0 0 0;
+		list-style-position: inside;
+
+		li {
+			font-size: 2rem;
+			margin: 0 0 0.5rem 0;
+		}
+	}
 }

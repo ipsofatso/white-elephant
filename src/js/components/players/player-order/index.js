@@ -2,12 +2,14 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { gameSelector, updateOrder } from '../../../slices/game'
+import Button from '@material-ui/core/Button'
+import CasinoIcon from '@material-ui/icons/Casino'
 
 import './index.scss'
 
 function PlayerOrder() {
     const dispatch = useDispatch()
-    const { order, players } = useSelector( gameSelector ) 
+    const { order, players } = useSelector( gameSelector )
 
     const generateNewOrder = () => {
         const available = players.length
@@ -54,12 +56,16 @@ function PlayerOrder() {
                 player order
             </h2>
 
-            <a onClick={ generateNewOrder }>generate</a>
+			<Button
+                children={ "generate order" }
+                endIcon={ <CasinoIcon /> }
+                onClick={ generateNewOrder }
+            />
 
             { order &&
-                <ul>
+                <ol>
                     { generatePlayerOrderList() }
-                </ul>
+                </ol>
             }
         </div>
     )

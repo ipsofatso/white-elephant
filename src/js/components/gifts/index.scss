@@ -1,4 +1,7 @@
+@import '../colors.scss';
+
 section.gifts-module {
+	background: rgba( $black, 0.25 );
 	height: 100%;
 	overflow: auto;
 

@@ -4,6 +4,7 @@ import _ from 'lodash'
 export const initialState = {
 	gifts: [],
 	order: [],
+	orderIndex: 0,
 	players: [],
 	showGiver: false
 }
@@ -81,6 +82,9 @@ const gameSlice = createSlice({
 
 			state.gifts[ ind ].image = payload.image
 		},
+		setOrderIndex: ( state, { payload } ) => {
+			state.orderIndex = payload
+		},
 		toggleShowGiver: ( state ) => {
 			state.showGiver = !state.showGiver
 		},
@@ -98,6 +102,7 @@ export const {
 	removePlayer,
 	removeRcvrFromGift,
 	setGiftUrl,
+	setOrderIndex,
 	toggleShowGiver,
 	updateOrder
 } = gameSlice.actions
