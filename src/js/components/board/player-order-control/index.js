@@ -40,9 +40,6 @@ function PlayerOrderControl() {
 	const changeOrderIndex = ( dir ) => {
 		let val = orderIndex + dir
 
-		console.log('orderIndex: ', orderIndex)
-		console.log('val: ', val)
-
 		if ( val < 0 ) {
 			val = order.length - 1
 		}
