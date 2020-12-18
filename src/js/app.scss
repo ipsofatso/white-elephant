@@ -27,6 +27,7 @@ html, body {
 	background-position: center;
 	background-blend-mode: overlay;
 	background-color: $green;
+	overflow: hidden;
 
     section.content {
         position: absolute;

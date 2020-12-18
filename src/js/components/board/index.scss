@@ -11,6 +11,7 @@ section.board-module {
     section.players {
         box-sizing: border-box;
 		padding: 1rem;
+		overflow: auto;
 	}
 
     section.gift-pile {

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useDrop } from 'react-dnd'
 
-import { assignGift, gameSelector } from '../../slices/game'
+import { assignGift, gameSelector, removeRcvrFromGift } from '../../slices/game'
 import BoardGift from './gift'
 import BoardPlayer from './player'
 import PlayerOrderControl from './player-order-control'
@@ -12,7 +13,8 @@ import './index.scss'
 
 function Board() {
     const dispatch = useDispatch()
-    const { gifts, players } = useSelector( gameSelector )
+	const { gifts, players } = useSelector( gameSelector )
+	let pileClassList = [ "gift-pile" ]
 
     const generatePileGifts = () => {
         let markup = []
@@ -63,17 +65,32 @@ function Board() {
     }
 
     const handleIsDropped = ( x ) => {
-        console.log('handle is dropped, x: ', x)
-    }
+		dispatch( removeRcvrFromGift( x.name ) )
+	}
+
+	const [{ isOver }, pile] = useDrop({
+		accept: ItemTypes.GIFT,
+        drop: handleIsDropped,
+        collect: (monitor) => ({
+            isOver: monitor.isOver(),
+        }),
+	});
+
+	if( isOver ) {
+		pileClassList.push( 'is-over' )
+	}
 
     return (
         <section className="board-module">
-            <section className="gift-pile">
-                <h1>
+            <section
+				className="gift-pile"
+				ref={ pile }
+			>
+				<h1>
 					gift pile
-                </h1>
+				</h1>
 
-                { generatePileGifts() }
+				{ generatePileGifts() }
             </section>
 
             <section className="players">
