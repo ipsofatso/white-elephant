@@ -34,7 +34,18 @@
                             font-size: 1.5rem;
                         }
                     }
-                }
+				}
+
+				.MuiFormControlLabel-root {
+					position: absolute;
+					top: 0;
+					right: 1rem;
+					font-weight: bold;
+
+					.MuiSvgIcon-root {
+						color: $white;
+					}
+				}
             }
 
             .MuiTabs-indicator {

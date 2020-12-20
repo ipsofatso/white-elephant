@@ -1,12 +1,21 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import AppBar from '@material-ui/core/AppBar'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
+
+import { gameSelector, toggleShowGiver } from '../../slices/game'
 
 import './index.scss'
 
 function Header( props ) {
+	const dispatch = useDispatch()
+	const {
+		showGiver
+    } = useSelector( gameSelector )
     const tabInfo = [
         {
             label: "Board",
@@ -17,13 +26,13 @@ function Header( props ) {
         {
             label: "Gifts"
         },
-        {
-            label: "Log",
-        },
+        //{
+        //    label: "Log",
+        //},
     ]
 
     const handleTabClick = ( e ) => {
-        props.setCurrent( parseInt( e.currentTarget.attributes[ "data-index" ].value ) ) 
+        props.setCurrent( parseInt( e.currentTarget.attributes[ "data-index" ].value ) )
     }
 
     const generateTabs = () => {
@@ -53,12 +62,26 @@ function Header( props ) {
                 value={ parseInt( props.current ) }
             >
                 <Tab
-                    label={ "🐟♻️" }
-                    value={ -1 }
                     className="icon"
+                    label={ "🐟♻️" }
+                    onClick={ handleTabClick }
+                    value={ -1 }
+                    data-index={ -1 }
                 />
 
                 { generateTabs() }
+
+				<FormControlLabel
+					control={
+						<Checkbox
+							checked={ showGiver }
+							onChange={
+								() => { dispatch( toggleShowGiver() ) }
+							}
+						/>
+					}
+					label="Show Giver"
+				/>
             </Tabs>
         </AppBar>
     )
